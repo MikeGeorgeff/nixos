@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+host=${2:-empty}
+dir="./hosts/${host}"
+target="deploy@${host}"
+
+if [ ! -d ${dir} ]; then
+    echo "Host ${host} unknown"
+
+    exit
+fi
+
+if [ "$3" == "--override-target" ]; then
+    target="$4"
+fi
+
+if [ "$1" == "switch" ]; then
+    nixos-rebuild switch --target-host ${target} --use-remote-sudo --flake .#${host}
+elif [ "$1" == "boot" ]; then
+    nixos-rebuild boot --target-host ${target} --use-remote-sudo --flake .#${host}
+elif [ "$1" == "test" ]; then
+    nixos-rebuild test --target-host ${target} --use-remote-sudo --flake .#${host}
+else
+    echo "USAGE: rebuild { switch | boot | test } { pangolin | saola | vaquita | sawfish }"
+fi
