@@ -27,6 +27,15 @@ in
           recommendedProxySettings = true;
         };
       };
+
+      "ntfy.georgeff.co" = {
+        forceSSL = true;
+        useACMEHost = "georgeff.co";
+        locations."/" = {
+          proxyPass = "http://127.0.0.1:2586";
+          recommendedProxySettings = true;
+        };
+      };
     };
   };
 

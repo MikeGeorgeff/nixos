@@ -14,6 +14,7 @@ in
     ./services/postgres.nix
     ./services/nginx.nix
     ./services/gitea.nix
+    ./services/ntfy.nix
     ./containers/speedtest.nix
     ./filesystem.nix
   ];
