@@ -49,7 +49,7 @@ in
 
   networking = {
     hostName = "${hostname}";
-    firewall.allowedTCPPorts = [ 22 ];
+    firewall.allowedTCPPorts = [ 22 8080 ];
     extraHosts = ''
         100.72.135.69 pangolin
         10.10.3.1     vaquita
