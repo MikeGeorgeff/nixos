@@ -36,6 +36,7 @@
       nil
       phpactor
       php81
+      php81Packages.phpstan
       php81Packages.composer
       yaml-language-server
       nodePackages.bash-language-server
