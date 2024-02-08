@@ -9,7 +9,6 @@ in
     ../modules/locale.nix
     ../modules/user-deploy.nix
     ../modules/tailscale.nix
-    ./filesystem.nix
   ];
 
   boot.loader = {

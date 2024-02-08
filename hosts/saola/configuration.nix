@@ -72,6 +72,8 @@ in
     git-crypt
     parted
     wget
+    php81
+    php81Packages.composer
   ];
 
   security.sudo.wheelNeedsPassword = false;
