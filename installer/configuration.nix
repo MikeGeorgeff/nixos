@@ -3,6 +3,8 @@ let
   ipAddress = "10.10.3.99";
   gateway = "10.10.3.1";
   interface = "enp4s0";
+
+  users = import ../secrets/users.nix;
 in
 {
   imports = [
@@ -32,6 +34,7 @@ in
     isNormalUser = true;
     description = "Admin";
     extraGroups = [ "wheel" ];
+    hashedPassword = "${users.passwords.admin}";
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIDV45PI7XVEWchRHVzuzoHD55SpdY+B3s82SXH6l+Cd mike@georgeff.co"
     ];
