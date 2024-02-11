@@ -10,6 +10,7 @@ in
     ../modules/user-deploy.nix
     ../modules/tailscale.nix
     ../modules/nextdns.nix
+    ./nfs-mounts.nix
   ];
 
   boot.loader = {

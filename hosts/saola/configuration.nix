@@ -10,6 +10,7 @@ in
     ../modules/nameservers-default.nix
     ../modules/tailscale.nix
     ../modules/user-deploy.nix
+    ./nfs-mounts.nix
   ];
 
   boot.loader.systemd-boot.enable = true;

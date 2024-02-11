@@ -11,6 +11,7 @@ in
     ../modules/tailscale.nix
     ../modules/user-admin.nix
     ../modules/user-deploy.nix
+    ./nfs-server.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
