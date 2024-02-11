@@ -43,6 +43,7 @@ in
 
   environment.systemPackages = with pkgs; [
     zfs
+    btop
   ];
 
   security.sudo.wheelNeedsPassword = false;
