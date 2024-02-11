@@ -1,4 +1,11 @@
 { config, pkgs, ... }:
+let
+  saola = "10.10.3.2";
+  condor = "100.88.169.90";
+  pangolin = "100.97.94.63";
+
+  default = "rw,nohide,insecure,no_subtree_check";
+in
 {
   services.nfs.server = {
     enable = true;
@@ -12,9 +19,11 @@
 
   systemd.tmpfiles.rules = [
     "d /mnt/vault/iso 0770 admin users -"
+    "d /mnt/vault/mike 0770 admin users -"
   ];
 
   services.nfs.server.exports = ''
-    /mnt/vault/iso 10.10.2.0/24(rw,nohide,insecure,no_subtree_check) 10.10.3.0/24(rw,nohide,insecure,no_subtree_check) 100.97.94.63(rw,nohide,insecure,no_subtree_check) 100.88.169.90(rw,nohide,insecure,no_subtree_check)
+    /mnt/vault/iso ${saola}(${default}) ${condor}(${default}) ${pangolin}(${default})
+    /mnt/vault/mike ${pangolin}(${default}) ${condor}(${default})
   '';
 }
