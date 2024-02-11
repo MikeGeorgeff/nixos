@@ -56,6 +56,14 @@
           specialArgs = { inherit inputs; };
         };
 
+        addax = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            ./hosts/addax/configuration.nix
+          ];
+          specialArgs = { inherit inputs; };
+        };
+
         vaquita = nixpkgs2305.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
