@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  hostname = "pangolin";
+  hostname = "condor";
 in
 {
   imports = [
@@ -12,13 +12,9 @@ in
     ../modules/nameservers-default.nix
   ];
 
-  boot.loader = {
-    systemd-boot = {
-      enable = true;
-      configurationLimit = 5;
-    };
-    efi.canTouchEfiVariables = true;
-  };
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.configurationLimit = 5;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   networking = {
     hostName = "${hostname}";
@@ -115,7 +111,6 @@ in
 
   hardware = {
     bluetooth.enable = true;
-    system76.enableAll = true;
   };
 
   fonts.packages = with pkgs; [
@@ -140,10 +135,6 @@ in
   };
 
   nixpkgs.config.allowUnfree = true;
-
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-24.8.6"
-  ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 

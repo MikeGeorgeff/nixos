@@ -22,7 +22,21 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.mike = import ./users/mike/home.nix;
+              home-manager.users.admin = import ./users/admin/pangolin.nix;
+            }
+          ];
+          specialArgs = { inherit inputs; };
+        };
+
+        condor = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            ./hosts/condor/configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.admin = import ./users/admin/condor.nix;
             }
           ];
           specialArgs = { inherit inputs; };
@@ -36,7 +50,7 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.admin = import ./users/admin/home.nix;
+              home-manager.users.admin = import ./users/admin/saola.nix;
             }
           ];
           specialArgs = { inherit inputs; };

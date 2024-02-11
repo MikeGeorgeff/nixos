@@ -22,7 +22,8 @@ in
     shell = pkgs.zsh;
     extraGroups = [ "wheel" ];
     openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIDV45PI7XVEWchRHVzuzoHD55SpdY+B3s82SXH6l+Cd mike@georgeff.co"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKUvHCGg3xcWwL1IwQv6f88Nsi5PsMRTblm+jk+gscJ3 admin@condor"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDHDEzNa2qKsEGY/r0TRyCbwET19eC9lVSnCTEzIEk4j admin@pangolin"
     ];
   };
 
@@ -34,9 +35,10 @@ in
     hostName = "${hostname}";
     firewall.allowedTCPPorts = [ 22 8080 ];
     extraHosts = ''
-        100.72.135.69 pangolin
-        10.10.3.1     vaquita
-        10.10.3.2     saola
+      100.97.94.63  pangolin
+      100.88.169.90 condor
+      10.10.3.1     vaquita
+      10.10.3.2     saola
     '';
     defaultGateway.address = "10.10.3.1";
     interfaces.enp5s0 = {
