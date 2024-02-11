@@ -44,6 +44,7 @@ in
   environment.systemPackages = with pkgs; [
     zfs
     btop
+    rsync
   ];
 
   security.sudo.wheelNeedsPassword = false;
