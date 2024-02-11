@@ -9,7 +9,7 @@ in
     ../modules/locale.nix
     ../modules/user-deploy.nix
     ../modules/tailscale.nix
-    ../modules/nameservers-default.nix
+    ../modules/nextdns.nix
   ];
 
   boot.loader = {

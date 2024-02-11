@@ -7,7 +7,6 @@
       ../modules/user-admin.nix
       ../modules/user-deploy.nix
       ../modules/tailscale.nix
-      ./node-exporter.nix
   ];
 
   boot = {
@@ -190,7 +189,6 @@
     interfaces = [ "enp1s0" "enp2s0" "lan" "iot" "guest" "enp3s0" ];
     machines = [];
     extraConfig = ''
-      supersede domain-name-servers 1.1.1.1, 1.0.0.1;
       option subnet-mask 255.255.255.0;
 
       subnet 10.10.1.0 netmask 255.255.255.0 {
