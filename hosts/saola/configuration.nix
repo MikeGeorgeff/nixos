@@ -39,6 +39,7 @@ in
       100.88.169.90 condor
       10.10.3.1     vaquita
       10.10.3.2     saola
+      10.10.3.3     addax
     '';
     defaultGateway.address = "10.10.3.1";
     interfaces.enp5s0 = {

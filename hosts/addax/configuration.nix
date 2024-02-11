@@ -17,8 +17,17 @@ in
   boot.loader.systemd-boot.configurationLimit = 5;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  boot.supportedFilesystems = [ "zfs" ];
+  boot.zfs.forceImportRoot = true;
+
+  fileSystems."/mnt/vault" = {
+    device = "vault";
+    fsType = "zfs";
+  };
+
   networking = {
     hostName = "${hostname}";
+    hostId = "5f297e51";
     firewall.allowedTCPPorts = [ 22 ];
     defaultGateway.address = "10.10.3.1";
     interfaces.enp4s0 = {
