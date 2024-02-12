@@ -10,12 +10,20 @@ in
     ../modules/locale.nix
     ../modules/user-deploy.nix
     ../modules/tailscale.nix
-    ../modules/nextdns.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.configurationLimit = 5;
   boot.loader.efi.canTouchEfiVariables = true;
+
+  services.resolved = {
+    enable = true;
+    extraConfig = ''
+      DNS=45.90.28.0#${hostname}-d76f76.dns.nextdns.io
+      DNS=45.90.30.0#${hostname}-d76f76.dns.nextdns.io
+      DNSOverTLS=yes
+    '';
+  };
 
   networking = {
     hostName = "${hostname}";

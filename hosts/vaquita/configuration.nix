@@ -189,10 +189,10 @@
     interfaces = [ "enp1s0" "enp2s0" "lan" "iot" "guest" "enp3s0" ];
     machines = [];
     extraConfig = ''
-      option domain-name-servers 1.1.1.1, 1.0.0.1;
       option subnet-mask 255.255.255.0;
 
       subnet 10.10.1.0 netmask 255.255.255.0 {
+        option domain-name-servers 1.1.1.1, 1.0.0.1;
         option broadcast-address 10.10.1.255;
         option routers 10.10.1.1;
         interface enp1s0;
@@ -200,6 +200,7 @@
       }
 
       subnet 10.10.3.0 netmask 255.255.255.0 {
+        option domain-name-servers 1.1.1.1, 1.0.0.1;
         option broadcast-address 10.10.3.255;
         option routers 10.10.3.1;
         interface enp2s0;
@@ -214,6 +215,7 @@
       }
 
       subnet 10.10.4.0 netmask 255.255.255.0 {
+        option domain-name-servers 1.1.1.1, 1.0.0.1;
         option broadcast-address 10.10.4.255;
         option routers 10.10.4.1;
         interface iot;
@@ -221,6 +223,7 @@
       }
 
       subnet 10.10.5.0 netmask 255.255.255.0 {
+        option domain-name-servers 1.1.1.1, 1.0.0.1;
         option broadcast-address 10.10.5.255;
         option routers 10.10.5.1;
         interface guest;
@@ -228,6 +231,7 @@
       }
 
       subnet 10.10.6.0 netmask 255.255.255.0 {
+        option domain-name-servers 1.1.1.1, 1.0.0.1;
         option broadcast-address 10.10.6.255;
         option routers 10.10.6.1;
         interface enp3s0;
