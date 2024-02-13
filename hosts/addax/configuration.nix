@@ -12,6 +12,8 @@ in
     ../modules/user-admin.nix
     ../modules/user-deploy.nix
     ./nfs-server.nix
+    ./nginx.nix
+    ./services/gitea.nix
   ];
 
   boot.loader.systemd-boot.enable = true;

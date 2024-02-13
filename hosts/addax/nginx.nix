@@ -7,8 +7,6 @@ in
 
   services.nginx = {
     enable = true;
-
-    virtualHosts = {};
   };
 
   security.acme = {
