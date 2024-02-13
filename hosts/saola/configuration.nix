@@ -12,6 +12,7 @@ in
     ../modules/user-deploy.nix
     ./nfs-mounts.nix
     ./services/gitea-actions-runner.nix
+    ./services/docker.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
