@@ -184,60 +184,81 @@
     };
   };
 
-  services.dhcpd4 = {
-    enable = true;
-    interfaces = [ "enp1s0" "enp2s0" "lan" "iot" "guest" "enp3s0" ];
-    machines = [];
-    extraConfig = ''
-      option subnet-mask 255.255.255.0;
+  services.kea = {
+    dhcp4 = {
+      enable = true;
 
-      subnet 10.10.1.0 netmask 255.255.255.0 {
-        option domain-name-servers 1.1.1.1, 1.0.0.1;
-        option broadcast-address 10.10.1.255;
-        option routers 10.10.1.1;
-        interface enp1s0;
-        range 10.10.1.2 10.10.1.254;
-      }
+      settings = {
+        interfaces-config = {
+          interfaces = [ "enp1s0" "enp2s0" "lan" "iot" "guest" "enp3s0" ];
+        };
 
-      subnet 10.10.3.0 netmask 255.255.255.0 {
-        option domain-name-servers 1.1.1.1, 1.0.0.1;
-        option broadcast-address 10.10.3.255;
-        option routers 10.10.3.1;
-        interface enp2s0;
-        range 10.10.3.100 10.10.3.254;
-      }
+        lease-database = {
+          name = "/var/lib/kea/dhcp4.leases";
+          persist = true;
+          type = "memfile";
+        };
 
-      subnet 10.10.2.0 netmask 255.255.255.0 {
-        option broadcast-address 10.10.2.255;
-        option routers 10.10.2.1;
-        interface lan;
-        range 10.10.2.100 10.10.2.254;
-      }
+        option-data = [
+          { name = "subnet-mask"; data = "255.255.255.0"; }
+          { name = "domain-name-servers"; data = "1.1.1.1, 1.0.0.1"; }
+        ];
 
-      subnet 10.10.4.0 netmask 255.255.255.0 {
-        option domain-name-servers 1.1.1.1, 1.0.0.1;
-        option broadcast-address 10.10.4.255;
-        option routers 10.10.4.1;
-        interface iot;
-        range 10.10.4.100 10.10.4.254;
-      }
+        valid-lifetime = 28800;
 
-      subnet 10.10.5.0 netmask 255.255.255.0 {
-        option domain-name-servers 1.1.1.1, 1.0.0.1;
-        option broadcast-address 10.10.5.255;
-        option routers 10.10.5.1;
-        interface guest;
-        range 10.10.5.2 10.10.5.254;
-      }
+        subnet4 = [
+          # enp1s0
+          {
+            subnet = "10.10.1.0/24";
+            pools = [{ pool = "10.10.1.100 - 10.10.1.199"; }];
+            option-data = [
+              { name = "routers"; data = "10.10.1.1"; }
+            ];
+          }
+          # lan
+          {
+            subnet = "10.10.2.0/24";
+            pools = [{ pool = "10.10.2.100 - 10.10.2.199"; }];
+            option-data = [
+              { name = "routers"; data = "10.10.2.1"; }
+            ];
+          }
+          # enp2s0
+          {
+            subnet = "10.10.3.0/24";
+            pools = [{ pool = "10.10.3.100 - 10.10.3.199"; }];
+            option-data = [
+              { name = "routers"; data = "10.10.3.1"; }
+            ];
+          }
+          # iot
+          {
+            subnet = "10.10.4.0/24";
+            pools = [{ pool = "10.10.4.100 - 10.10.4.199"; }];
+            option-data = [
+              { name = "routers"; data = "10.10.4.1"; }
+            ];
+          }
+          # guest
+          {
+            subnet = "10.10.5.0/24";
+            pools = [{ pool = "10.10.5.100 - 10.10.5.199"; }];
+            option-data = [
+              { name = "routers"; data = "10.10.5.1"; }
+            ];
+          }
+          # enp3s0
+          {
+            subnet = "10.10.6.0/24";
+            pools = [{ pool = "10.10.6.100 - 10.10.6.199"; }];
+            option-data = [
+              { name = "routers"; data = "10.10.6.1"; }
+            ];
+          }
+        ];
 
-      subnet 10.10.6.0 netmask 255.255.255.0 {
-        option domain-name-servers 1.1.1.1, 1.0.0.1;
-        option broadcast-address 10.10.6.255;
-        option routers 10.10.6.1;
-        interface enp3s0;
-        range 10.10.6.2 10.10.6.254;
-      }
-    '';
+      };
+    };
   };
 
   environment.systemPackages = with pkgs; [

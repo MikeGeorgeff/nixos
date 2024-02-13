@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    nixpkgs2305.url = "github:nixos/nixpkgs/nixos-23.05";
+    nixpkgs2311.url = "github:nixos/nixpkgs/nixos-23.11";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -12,7 +12,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs2305, home-manager, ... } @inputs: {
+  outputs = { self, nixpkgs, nixpkgs2311, home-manager, ... } @inputs: {
       nixosConfigurations = {
         pangolin = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
@@ -64,7 +64,7 @@
           specialArgs = { inherit inputs; };
         };
 
-        vaquita = nixpkgs2305.lib.nixosSystem {
+        vaquita = nixpkgs2311.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
             ./hosts/vaquita/configuration.nix
