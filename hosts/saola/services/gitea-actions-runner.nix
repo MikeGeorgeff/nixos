@@ -12,7 +12,7 @@ in
       name = "blackhawk";
       url = "${url}";
       token = "${token}";
-      labels = [ "native:host" ];
+      labels = [ "native:host" "nixos" ];
     };
 
     bruin = {
@@ -20,7 +20,7 @@ in
       name = "bruin";
       url = "${url}";
       token = "${token}";
-      labels = [ "native:host" ];
+      labels = [ "native:host" "nixos" ];
     };
   };
 }
