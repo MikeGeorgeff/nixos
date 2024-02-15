@@ -11,6 +11,8 @@ in
     recommendedProxySettings = true;
     recommendedOptimisation = true;
     recommendedGzipSettings = true;
+
+    clientMaxBodySize = "5000M";
   };
 
   security.acme = {
