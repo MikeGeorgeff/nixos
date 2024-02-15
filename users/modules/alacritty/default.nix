@@ -1,4 +1,4 @@
 { config, ... }:
 {
-  home.file.".config/alacritty/alacritty.yml".source = ./alacritty.yml;
+  home.file.".config/alacritty/alacritty.toml".source = ./alacritty.toml;
 }

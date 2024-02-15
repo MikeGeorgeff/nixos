@@ -11,7 +11,6 @@ in
     ../modules/tailscale.nix
     ../modules/user-deploy.nix
     ./nfs-mounts.nix
-    ./services/gitea-actions-runner.nix
     ./services/docker.nix
   ];
 

@@ -46,7 +46,6 @@ in
     locations."/" = {
       proxyPass = "http://127.0.0.1:${toString config.services.gitea.settings.server.HTTP_PORT}";
       proxyWebsockets = true;
-      recommendedProxySettings = true;
     };
   };
 }
