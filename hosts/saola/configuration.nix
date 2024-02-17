@@ -18,6 +18,16 @@ in
   boot.loader.systemd-boot.configurationLimit = 5;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  nix.sshServe = {
+    enable = true;
+    protocol = "ssh-ng";
+    write = true;
+    keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDHDEzNa2qKsEGY/r0TRyCbwET19eC9lVSnCTEzIEk4j admin@pangolin"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC3pcSalbsAdhaz7tjtFVE7sVbFEafyhvkNsSyb1pY7c woodpecker"
+    ];
+  };
+
   users.users.admin = {
     isNormalUser = true;
     description = "Admin";
