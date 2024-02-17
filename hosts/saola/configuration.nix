@@ -69,7 +69,6 @@ in
     git-crypt
     parted
     wget
-    skopeo
   ];
 
   security.sudo.wheelNeedsPassword = false;
