@@ -18,6 +18,16 @@ in
   boot.loader.systemd-boot.configurationLimit = 5;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  environment.etc."nix-cache-key" = {
+    enable = true;
+    source = ../../secrets/nix-cache-key.sec;
+    target = "nix-cache-key.sec";
+  };
+
+  nix.extraOptions = ''
+    secret-key-files = /etc/nix-cache-key.sec
+  '';
+
   nix.sshServe = {
     enable = true;
     protocol = "ssh-ng";

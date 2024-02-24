@@ -39,6 +39,10 @@ in
   };
 
   nix.settings.trusted-users = [ "admin" ];
+  nix.settings.trusted-substituters = [ "ssh-ng://nix-ssh@saola.georgeff.co" ];
+  nix.settings.trusted-public-keys = [
+    "saola.georgeff.co-1:KKcFKKIJSIXUgaLrhKhZqHwVm/qVb2iRKVVNj8d+Ivw="
+  ];
 
   security.sudo.wheelNeedsPassword = false;
 
