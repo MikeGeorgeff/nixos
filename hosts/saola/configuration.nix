@@ -39,9 +39,15 @@ in
     ];
   };
 
+  users.users.builder = {
+    isNormalUser = true;
+    description = "Builder";
+    extraGroups = [ "wheel" ];
+  };
+
   programs.zsh.enable = true;
 
-  nix.settings.trusted-users = [ "admin" ];
+  nix.settings.trusted-users = [ "admin" "builder" ];
 
   networking = {
     hostName = "${hostname}";
