@@ -254,13 +254,13 @@
       cmp.setup {
         sources = {
           { name = "nvim_lsp" },
-          { name = "path" },
+          { name = "buffer" },
         },
         formatting = {
           format = function(entry, vim_item)
             vim_item.menu = ({
               nvim_lsp = "[LSP]",
-              path = "[PATH]",
+              buffer = "[BUFFER]",
             })[entry.source.name]
             return vim_item
           end
