@@ -30,7 +30,6 @@ in
         DOCKER_HOST = "unix:///run/podman/podman.sock";
         WOODPECKER_BACKEND = "docker";
         WOODPECKER_AGENT_SECRET = "${secrets.agent.secret}";
-        WOODPECKER_DOCKER_CONFIG = "/home/admin/.docker/auth.json";
       };
     };
   };
