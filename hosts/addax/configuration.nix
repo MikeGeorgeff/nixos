@@ -14,7 +14,6 @@ in
     ./nfs-server.nix
     ./nginx.nix
     ./services/gitea.nix
-    ./services/podman.nix
     ./services/woodpecker.nix
   ];
 

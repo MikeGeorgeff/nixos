@@ -12,6 +12,7 @@ in
     ../modules/user-deploy.nix
     ./nfs-mounts.nix
     ./services/docker.nix
+    ./services/woodpecker-agent.nix
   ];
 
   boot.loader.systemd-boot.enable = true;

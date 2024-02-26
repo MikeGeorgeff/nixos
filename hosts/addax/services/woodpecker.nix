@@ -5,6 +5,9 @@ let
   port = "3001";
 in
 {
+
+  networking.firewall.allowedTCPPorts = [ 9000 ];
+
   services.woodpecker-server = {
     enable = true;
     environment = {
@@ -17,20 +20,6 @@ in
       WOODPECKER_GITEA_CLIENT = "${secrets.gitea.client.id}";
       WOODPECKER_GITEA_SECRET = "${secrets.gitea.client.secret}";
       WOODPECKER_AGENT_SECRET = "${secrets.agent.secret}";
-    };
-  };
-
-  services.woodpecker-agents.agents = {
-    "blackhawk" = {
-      enable = true;
-      extraGroups = [ "podman" ];
-      environment = {
-        WOODPECKER_SERVER = "localhost:9000";
-        WOODPECKER_MAX_WORKFLOWS = "5";
-        DOCKER_HOST = "unix:///run/podman/podman.sock";
-        WOODPECKER_BACKEND = "docker";
-        WOODPECKER_AGENT_SECRET = "${secrets.agent.secret}";
-      };
     };
   };
 
