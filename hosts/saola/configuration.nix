@@ -12,7 +12,6 @@ in
     ../modules/user-deploy.nix
     ./nfs-mounts.nix
     ./services/docker.nix
-    ./services/woodpecker-agent.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -77,6 +76,7 @@ in
 
   environment.systemPackages = with pkgs; [
     git
+    git-lfs
     git-crypt
     parted
     wget

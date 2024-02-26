@@ -14,7 +14,6 @@ in
     ./nfs-server.nix
     ./nginx.nix
     ./services/gitea.nix
-    ./services/woodpecker.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
