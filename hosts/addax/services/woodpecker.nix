@@ -33,6 +33,18 @@ in
         WOODPECKER_AGENT_SECRET = "${secrets.agent.secret}";
       };
     };
+
+    "red-wing" = {
+      enable = true;
+      extraGroups = [ "docker" ];
+      environment = {
+        WOODPECKER_SERVER = "127.0.0.1:9000";
+        WOODPECKER_MAX_WORKFLOWS = "5";
+        DOCKER_HOST = "unix:///var/run/docker.sock";
+        WOODPECKER_BACKEND = "docker";
+        WOODPECKER_AGENT_SECRET = "${secrets.agent.secret}";
+      };
+    };
   };
 
   services.nginx.virtualHosts."${domain}" = {
