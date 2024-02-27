@@ -14,7 +14,7 @@ in
     ./nfs-server.nix
     ./nginx.nix
     ./services/gitea.nix
-    ./services/podman.nix
+    ./services/docker.nix
     ./services/kafka-ui.nix
     ./services/gotify.nix
     ./services/woodpecker.nix

@@ -24,11 +24,11 @@ in
   services.woodpecker-agents.agents = {
     "blackhawk" = {
       enable = true;
-      extraGroups = [ "podman" ];
+      extraGroups = [ "docker" ];
       environment = {
         WOODPECKER_SERVER = "127.0.0.1:9000";
         WOODPECKER_MAX_WORKFLOWS = "5";
-        DOCKER_HOST = "unix:///run/podman/podman.sock";
+        DOCKER_HOST = "unix:///var/run/docker.sock";
         WOODPECKER_BACKEND = "docker";
         WOODPECKER_AGENT_SECRET = "${secrets.agent.secret}";
       };
