@@ -1,5 +1,7 @@
 { config, pkgs, ... }:
 {
+  boot.kernel.sysctl."net.ipv4.ip_forward" = true;
+
   virtualisation.podman = {
     enable = true;
     dockerCompat = true;

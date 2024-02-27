@@ -17,6 +17,7 @@ in
     ./services/podman.nix
     ./services/kafka-ui.nix
     ./services/gotify.nix
+    ./services/woodpecker.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
