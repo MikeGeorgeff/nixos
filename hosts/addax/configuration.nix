@@ -16,6 +16,7 @@ in
     ./services/gitea.nix
     ./services/podman.nix
     ./services/kafka-ui.nix
+    ./services/gotify.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
