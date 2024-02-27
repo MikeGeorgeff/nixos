@@ -14,6 +14,9 @@ in
     image = "provectuslabs/kafka-ui:latest";
     autoStart = true;
     environment = {
+      AUTH_TYPE = "LOGIN_FORM";
+      SPRING_SECURITY_USER_NAME = "${secrets.ui.auth.basic.username}";
+      SPRING_SECURITY_USER_PASSWORD = "${secrets.ui.auth.basic.password}";
       KAFKA_CLUSTERS_0_NAME = "${secrets.production.name}";
       KAFKA_CLUSTERS_0_READONLY = "true";
       KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS = "${secrets.production.server}";
