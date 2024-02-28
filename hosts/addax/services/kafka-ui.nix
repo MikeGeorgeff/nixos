@@ -18,6 +18,18 @@ in
       KAFKA_CLUSTERS_0_PROPERTIES_SECURITY_PROTOCOL = "SASL_SSL";
       KAFKA_CLUSTERS_0_PROPERTIES_SASL_MECHANISM = "SCRAM-SHA-256";
       KAFKA_CLUSTERS_0_PROPERTIES_SASL_JAAS_CONFIG = "org.apache.kafka.common.security.scram.ScramLoginModule required username=\"${secrets.production.username}\" password=\"${secrets.production.password}\";";
+      KAFKA_CLUSTERS_1_NAME = "${secrets.staging.name}";
+      KAFKA_CLUSTERS_1_READONLY = "true";
+      KAFKA_CLUSTERS_1_BOOTSTRAPSERVERS = "${secrets.staging.server}";
+      KAFKA_CLUSTERS_1_PROPERTIES_SECURITY_PROTOCOL = "SASL_SSL";
+      KAFKA_CLUSTERS_1_PROPERTIES_SASL_MECHANISM = "SCRAM-SHA-256";
+      KAFKA_CLUSTERS_1_PROPERTIES_SASL_JAAS_CONFIG = "org.apache.kafka.common.security.scram.ScramLoginModule required username=\"${secrets.staging.username}\" password=\"${secrets.staging.password}\";";
+      KAFKA_CLUSTERS_2_NAME = "${secrets.dev.name}";
+      KAFKA_CLUSTERS_2_READONLY = "true";
+      KAFKA_CLUSTERS_2_BOOTSTRAPSERVERS = "${secrets.dev.server}";
+      KAFKA_CLUSTERS_2_PROPERTIES_SECURITY_PROTOCOL = "SASL_SSL";
+      KAFKA_CLUSTERS_2_PROPERTIES_SASL_MECHANISM = "SCRAM-SHA-256";
+      KAFKA_CLUSTERS_2_PROPERTIES_SASL_JAAS_CONFIG = "org.apache.kafka.common.security.scram.ScramLoginModule required username=\"${secrets.dev.username}\" password=\"${secrets.dev.password}\";";
     };
     ports = [
       "${port}:8080"
