@@ -16,8 +16,8 @@ in
     ./services/gitea.nix
     ./services/docker.nix
     ./services/kafka-ui.nix
-    ./services/gotify.nix
     ./services/woodpecker.nix
+    ./services/ntfy.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
