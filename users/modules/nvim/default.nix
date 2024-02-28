@@ -50,6 +50,7 @@
       set smarttab
       set ignorecase
       set smartcase
+      set nowrap
       set nohlsearch " do not highlight search terms
 
       let mapleader = ","
