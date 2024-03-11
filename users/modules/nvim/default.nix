@@ -35,8 +35,8 @@
       nodejs_18
       nil
       phpactor
-      php81
-      php81Packages.composer
+      php82
+      php82Packages.composer
       yaml-language-server
       nodePackages.bash-language-server
       dockerfile-language-server-nodejs
