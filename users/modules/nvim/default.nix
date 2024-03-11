@@ -27,6 +27,8 @@
     ];
 
     extraPackages = with pkgs; [
+      git
+
       # for telescope-nvim
       ripgrep
       fd
