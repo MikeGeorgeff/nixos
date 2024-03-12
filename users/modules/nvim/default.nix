@@ -54,7 +54,8 @@
       set ignorecase
       set smartcase
       set nowrap
-      set nohlsearch " do not highlight search terms
+      set spell
+      set spelllang=en_us
 
       let mapleader = ","
 
