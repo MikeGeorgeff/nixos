@@ -58,6 +58,9 @@
 
       let mapleader = ","
 
+      " View leader key maps
+      nnoremap <leader>ls :map ,<cr>
+
       " Find files using Telescope command-line sugar.
       nnoremap <leader>ff :Telescope find_files<cr>
       nnoremap <leader>fg :Telescope live_grep<cr>
@@ -67,6 +70,8 @@
       " Diffview
       nnoremap <leader>dv :DiffviewOpen<cr>
       nnoremap <leader>dvc :DiffviewClose<cr>
+      nnoremap <leader>dvh :DiffviewFileHistory<cr>
+      nnoremap <leader>dvr :DiffviewRefresh<cr>
 
       " NvimTree
       nnoremap <leader>n :NvimTreeFocus<cr>
