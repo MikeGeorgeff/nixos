@@ -24,6 +24,7 @@
       vim-fugitive
       undotree
       nvim-autopairs
+      diffview-nvim
     ];
 
     extraPackages = with pkgs; [
@@ -58,10 +59,14 @@
       let mapleader = ","
 
       " Find files using Telescope command-line sugar.
-      nnoremap <leader>ff <cmd>Telescope find_files<cr>
-      nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-      nnoremap <leader>fb <cmd>Telescope buffers<cr>
-      nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+      nnoremap <leader>ff :Telescope find_files<cr>
+      nnoremap <leader>fg :Telescope live_grep<cr>
+      nnoremap <leader>fb :Telescope buffers<cr>
+      nnoremap <leader>fh :Telescope help_tags<cr>
+
+      " Diffview
+      nnoremap <leader>dv :DiffviewOpen<cr>
+      nnoremap <leader>dvc :DiffviewClose<cr>
 
       " NvimTree
       nnoremap <leader>n :NvimTreeFocus<cr>
