@@ -1,5 +1,7 @@
 { config, pkgs, ... }:
 {
+  home.file."intelephense/license.txt".source = ../../../secrets/intelephense_license.txt;
+
   programs.neovim = {
     enable = true;
     viAlias = true;
@@ -37,6 +39,7 @@
       php82
       php82Packages.composer
       yaml-language-server
+      nodePackages.intelephense
       nodePackages.bash-language-server
       dockerfile-language-server-nodejs
     ];
@@ -296,7 +299,7 @@
       lspconfig.nil_ls.setup {
         capabilities = capabilities
       }
-      lspconfig.phpactor.setup {
+      lspconfig.intelephense.setup {
         capabilities = capabilities
       }
       lspconfig.yamlls.setup {}
