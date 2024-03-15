@@ -12,6 +12,7 @@ in
     ../modules/user-deploy.nix
     ./nfs-mounts.nix
     ./services/docker.nix
+    ./nginx.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -36,6 +37,11 @@ in
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDHDEzNa2qKsEGY/r0TRyCbwET19eC9lVSnCTEzIEk4j admin@pangolin"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC3pcSalbsAdhaz7tjtFVE7sVbFEafyhvkNsSyb1pY7c woodpecker"
     ];
+  };
+
+  services.nix-serve = {
+    enable = true;
+    secretKeyFile = "/etc/nix-cache-key.sec";
   };
 
   users.users.admin = {
