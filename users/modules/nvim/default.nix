@@ -29,12 +29,8 @@
 
     extraPackages = with pkgs; [
       git
-
-      # for telescope-nvim
       ripgrep
       fd
-
-      # language servers
       nodejs_18
       nil
       phpactor
@@ -267,8 +263,8 @@
 
       cmp.setup {
         sources = {
-          { name = "nvim_lsp" },
-          { name = "buffer" },
+          { name = "nvim_lsp", group_index = 1 },
+          { name = "buffer", group_index = 2 },
         },
         formatting = {
           format = function(entry, vim_item)
