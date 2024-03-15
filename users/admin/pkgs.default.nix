@@ -8,5 +8,6 @@
     eza
     zsh
     lazygit
+    vifm-full
   ];
 }

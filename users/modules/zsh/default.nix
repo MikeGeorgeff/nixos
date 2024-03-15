@@ -12,6 +12,7 @@
             lt = "eza -aT --color=always --group-directories-first";
             cat = "bat";
             lg = "lazygit";
+            fm = "vifm";
             shutdown = "sudo shutdown now";
             reboot = "sudo reboot";
             ssh-pubkey = "ssh-keygen -f $HOME/.ssh/id_ed25519 -y";
