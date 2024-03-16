@@ -16,7 +16,6 @@ in
     ./services/gitea.nix
     ./services/docker.nix
     ./services/kafka-ui.nix
-    ./services/woodpecker.nix
     ./services/ntfy.nix
   ];
 
@@ -35,6 +34,10 @@ in
   networking = {
     hostName = "${hostname}";
     hostId = "5f297e51";
+    nameservers = [
+      "1.1.1.1"
+      "1.0.0.1"
+    ];
     firewall.allowedTCPPorts = [ 22 ];
     defaultGateway.address = "10.10.3.1";
     interfaces.enp4s0 = {
