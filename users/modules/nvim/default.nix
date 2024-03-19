@@ -55,6 +55,7 @@
       set nowrap
       set spell
       set spelllang=en_us
+      set scrolloff=100
 
       let mapleader = ","
 
