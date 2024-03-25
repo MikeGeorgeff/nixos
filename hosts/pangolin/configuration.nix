@@ -10,6 +10,7 @@ in
     ../modules/locale.nix
     ../modules/user-deploy.nix
     ../modules/tailscale.nix
+    ../modules/qflipper.nix
     ./nfs-mounts.nix
   ];
 
