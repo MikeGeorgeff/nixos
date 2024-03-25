@@ -17,6 +17,7 @@ in
     ./services/docker.nix
     ./services/kafka-ui.nix
     ./services/ntfy.nix
+    ./services/youtrack.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
