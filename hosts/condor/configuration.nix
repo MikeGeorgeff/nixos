@@ -10,6 +10,7 @@ in
     ../modules/locale.nix
     ../modules/user-deploy.nix
     ../modules/tailscale.nix
+    ../modules/qflipper.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -35,6 +36,10 @@ in
     description = "Admin";
     shell = pkgs.zsh;
     extraGroups = [ "networkmanager" "wheel" ];
+  };
+
+  services.thinkfan = {
+    enable = true;
   };
 
   nix.settings.trusted-users = [ "admin" ];
