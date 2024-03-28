@@ -7,5 +7,9 @@
     slack
     insomnia
     flameshot
+    rpi-imager
+    arduino
+    arduino-cli
+    thonny
   ];
 }
