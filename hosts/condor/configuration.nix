@@ -35,7 +35,7 @@ in
     isNormalUser = true;
     description = "Admin";
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "dialout" ];
   };
 
   services.thinkfan = {
