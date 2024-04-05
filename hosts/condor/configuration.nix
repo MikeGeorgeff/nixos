@@ -11,6 +11,7 @@ in
     ../modules/user-deploy.nix
     ../modules/tailscale.nix
     ../modules/qflipper.nix
+    ./nfs-mounts.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
