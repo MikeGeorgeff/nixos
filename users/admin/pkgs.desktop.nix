@@ -8,8 +8,7 @@
     insomnia
     flameshot
     rpi-imager
-    arduino
-    arduino-cli
-    thonny
+    blender
+    appimage-run
   ];
 }
