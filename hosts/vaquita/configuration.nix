@@ -238,6 +238,10 @@
             option-data = [
               { name = "routers"; data = "10.10.4.1"; }
             ];
+            reservations = [
+              # Ender 3 Printer
+              { hw-address = "FC:EE:11:00:D1:D0"; ip-address = "10.10.4.3"; }
+            ];
           }
           # guest
           {
