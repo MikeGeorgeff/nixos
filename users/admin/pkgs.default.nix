@@ -9,5 +9,6 @@
     zsh
     lazygit
     vifm-full
+    devenv
   ];
 }
