@@ -3,6 +3,11 @@
   sound.enable = true;
 
   services = {
+    displayManager = {
+      enable = true;
+      defaultSession = "none+i3";
+    };
+
     xserver = {
       enable = true;
       xkb.layout = "us";
@@ -17,7 +22,6 @@
 
       displayManager = {
         lightdm.enable = true;
-        defaultSession = "none+i3";
       };
 
       libinput = {

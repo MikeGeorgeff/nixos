@@ -10,5 +10,6 @@
     rpi-imager
     blender
     appimage-run
+    orca-slicer
   ];
 }
