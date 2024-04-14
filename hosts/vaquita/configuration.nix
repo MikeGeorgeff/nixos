@@ -144,7 +144,7 @@
             iifname { "enp2s0", "lan" } oifname { "enp1s0" } counter accept
             iifname { "enp1s0" } oifname { "enp2s0", "lan" } ct state established,related counter accept
 
-            # Allow enp2s0 & lan to access iot
+            # Allow enp2s0, lan & tailsscale subnet router to access iot
             iifname { "enp2s0", "lan", "tailscale0" } oifname { "iot" } counter accept
             iifname { "iot" } oifname { "enp2s0", "lan", "tailscale0" } ct state established,related counter accept
 
