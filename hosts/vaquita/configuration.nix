@@ -145,8 +145,8 @@
             iifname { "enp1s0" } oifname { "enp2s0", "lan" } ct state established,related counter accept
 
             # Allow enp2s0 & lan to access iot
-            iifname { "enp2s0", "lan" } oifname { "iot" } counter accept
-            iifname { "iot" } oifname { "enp2s0", "lan" } ct state established,related counter accept
+            iifname { "enp2s0", "lan", "tailscale0" } oifname { "iot" } counter accept
+            iifname { "iot" } oifname { "enp2s0", "lan", "tailscale0" } ct state established,related counter accept
 
             # Allow enp2s0 to access lan
             iifname { "enp2s0" } oifname { "lan" } counter accept
@@ -241,6 +241,8 @@
             reservations = [
               # Ender 3 Printer
               { hw-address = "FC:EE:11:00:D1:D0"; ip-address = "10.10.4.3"; }
+              # Hue Bridge
+              { hw-address = "EC:B5:FA:0F:44:79"; ip-address = "10.10.4.4"; }
             ];
           }
           # guest
