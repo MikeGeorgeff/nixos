@@ -70,6 +70,7 @@
     picom
     polkit_gnome
     pulseaudioFull
+    pavucontrol
     rofi
     wget
     unrar

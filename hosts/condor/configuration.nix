@@ -18,6 +18,8 @@ in
   boot.loader.systemd-boot.configurationLimit = 5;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  nixpkgs.config.allowUnfree = true;
+
   services.resolved = {
     enable = true;
     extraConfig = ''
@@ -36,7 +38,7 @@ in
     isNormalUser = true;
     description = "Admin";
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" "dialout" ];
+    extraGroups = [ "networkmanager" "wheel" "dialout" "vboxusers" ];
   };
 
   services.thinkfan = {
