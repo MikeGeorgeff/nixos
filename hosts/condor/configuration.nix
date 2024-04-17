@@ -11,6 +11,7 @@ in
     ../modules/user-deploy.nix
     ../modules/tailscale.nix
     ../modules/qflipper.nix
+    ../modules/clamav.nix
     ./nfs-mounts.nix
   ];
 

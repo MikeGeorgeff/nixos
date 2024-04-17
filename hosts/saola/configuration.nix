@@ -10,6 +10,7 @@ in
     ../modules/nameservers-default.nix
     ../modules/tailscale.nix
     ../modules/user-deploy.nix
+    ../modules/clamav.nix
     ./nfs-mounts.nix
     ./services/docker.nix
   ];

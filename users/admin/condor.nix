@@ -14,7 +14,7 @@
   ];
 
   home.username = "admin";
-  home.homeDirectory = "/home/admin";  
+  home.homeDirectory = "/home/admin";
 
   home.stateVersion = "23.11";
 
