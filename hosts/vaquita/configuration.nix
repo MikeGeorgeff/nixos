@@ -44,6 +44,10 @@
         id = 50;
         interface = "enp1s0";
       };
+      gaming = {
+        id = 90;
+        interface = "enp1s0";
+      };
     };
 
     # Interfaces
@@ -102,14 +106,22 @@
           prefixLength = 24;
         }];
       };
+
+      # gaming vlan
+      gaming = {
+        ipv4.addresses = [{
+          address = "10.10.9.1";
+          prefixLength = 24;
+        }];
+      };
     };
 
     # NAT
     nat = {
       enable = true;
       externalInterface = "enp6s0";
-      internalInterfaces = [ "enp1s0" "enp2s0" "lan" "iot" "guest" "enp3s0" ];
-      internalIPs = [ "10.10.1.1/24" "10.10.3.1/24" "10.10.2.1/24" "10.10.4.1/24" "10.10.5.1/24" "10.10.6.1/24" ];
+      internalInterfaces = [ "enp1s0" "enp2s0" "lan" "iot" "guest" "gaming" "enp3s0" ];
+      internalIPs = [ "10.10.1.1/24" "10.10.3.1/24" "10.10.2.1/24" "10.10.4.1/24" "10.10.5.1/24" "10.10.6.1/24" "10.10.9.1/24" ];
     };
 
     # Firewall
@@ -137,8 +149,8 @@
             type filter hook forward priority filter; policy drop;
 
             # Allow all networks access to the wan
-            iifname { "enp1s0", "enp2s0", "lan", "iot", "guest", "enp3s0" } oifname { "enp6s0" } counter accept
-            iifname { "enp6s0" } oifname { "enp1s0", "enp2s0", "lan", "iot", "guest", "enp3s0" } ct state established,related counter accept
+            iifname { "enp1s0", "enp2s0", "lan", "iot", "guest", "gaming", "enp3s0" } oifname { "enp6s0" } counter accept
+            iifname { "enp6s0" } oifname { "enp1s0", "enp2s0", "lan", "iot", "guest", "gaming", "enp3s0" } ct state established,related counter accept
 
             # Allow enp2s0 & lan to access enp1s0
             iifname { "enp2s0", "lan" } oifname { "enp1s0" } counter accept
@@ -190,7 +202,7 @@
 
       settings = {
         interfaces-config = {
-          interfaces = [ "enp1s0" "enp2s0" "lan" "iot" "guest" "enp3s0" ];
+          interfaces = [ "enp1s0" "enp2s0" "lan" "iot" "guest" "gaming" "enp3s0" ];
         };
 
         lease-database = {
@@ -251,6 +263,18 @@
             pools = [{ pool = "10.10.5.100 - 10.10.5.199"; }];
             option-data = [
               { name = "routers"; data = "10.10.5.1"; }
+            ];
+          }
+          # gaming
+          {
+            subnet = "10.10.9.0/24";
+            pools = [{ pool = "10.10.9.100 - 10.10.9.199"; }];
+            option-data = [{ name = "routers"; data = "10.10.9.1"; }];
+            reservations = [
+              # PC
+              { hw-address = "9C:6B:00:0C:98:FA"; ip-address = "10.10.9.3"; }
+              # Steam Deck
+              { hw-address = "B0:0C:9D:A5:A0:91"; ip-address = "10.10.9.4"; }
             ];
           }
           # enp3s0
