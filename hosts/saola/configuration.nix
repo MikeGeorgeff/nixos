@@ -34,8 +34,7 @@ in
     protocol = "ssh-ng";
     write = true;
     keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDHDEzNa2qKsEGY/r0TRyCbwET19eC9lVSnCTEzIEk4j admin@pangolin"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC3pcSalbsAdhaz7tjtFVE7sVbFEafyhvkNsSyb1pY7c woodpecker"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINajRNfvaNvQxCOE1ikJbMTiEfCYVYRfA3U+u6kpQREZ admin@gharial"
     ];
   };
 
@@ -46,7 +45,7 @@ in
     extraGroups = [ "wheel" ];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKUvHCGg3xcWwL1IwQv6f88Nsi5PsMRTblm+jk+gscJ3 admin@condor"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDHDEzNa2qKsEGY/r0TRyCbwET19eC9lVSnCTEzIEk4j admin@pangolin"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINajRNfvaNvQxCOE1ikJbMTiEfCYVYRfA3U+u6kpQREZ admin@gharial"
     ];
   };
 
@@ -58,11 +57,11 @@ in
     hostName = "${hostname}";
     firewall.allowedTCPPorts = [ 22 8080 ];
     extraHosts = ''
-      100.97.94.63  pangolin
-      100.88.169.90 condor
-      10.10.3.1     vaquita
-      10.10.3.2     saola
-      10.10.3.3     addax
+      100.81.193.125 gharial
+      100.88.169.90  condor
+      10.10.3.1      vaquita
+      10.10.3.2      saola
+      10.10.3.3      addax
     '';
     defaultGateway.address = "10.10.3.1";
     interfaces.enp5s0 = {

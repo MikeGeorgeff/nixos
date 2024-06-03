@@ -3,7 +3,7 @@
   imports = [
     ./pkgs.default.nix
     ./pkgs.desktop.nix
-    ../modules/ssh/pangolin.nix
+    ../modules/ssh/gharial.nix
     ../modules/git/default.nix
     ../modules/neofetch/default.nix
     ../modules/zsh/default.nix
@@ -14,7 +14,7 @@
   ];
 
   home.username = "admin";
-  home.homeDirectory = "/home/admin";  
+  home.homeDirectory = "/home/admin";
 
   home.stateVersion = "23.11";
 

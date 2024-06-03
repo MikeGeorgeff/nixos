@@ -21,5 +21,5 @@ elif [ "$1" == "boot" ]; then
 elif [ "$1" == "test" ]; then
     nixos-rebuild test --target-host ${target} --use-remote-sudo --flake .#${host}
 else
-    echo "USAGE: rebuild { switch | boot | test } { pangolin | saola | vaquita | sawfish }"
+    echo "USAGE: rebuild { switch | boot | test } { gharial | condor | saola | vaquita }"
 fi

@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  hostname = "pangolin";
+  hostname = "gharial";
 in
 {
   imports = [
@@ -11,6 +11,7 @@ in
     ../modules/user-deploy.nix
     ../modules/tailscale.nix
     ../modules/qflipper.nix
+    ../modules/clamav.nix
     ./nfs-mounts.nix
   ];
 
@@ -36,8 +37,11 @@ in
     isNormalUser = true;
     description = "Admin";
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "dialout" ];
   };
+
+  # Tools for framework laptops
+  environment.systemPackages = [ pkgs.framework-tool ];
 
   nix.settings.trusted-users = [ "admin" ];
   nix.settings.trusted-substituters = [ "ssh-ng://nix-ssh@saola.georgeff.co" ];
@@ -46,8 +50,6 @@ in
   ];
 
   security.sudo.wheelNeedsPassword = false;
-
-  hardware.system76.enableAll = true;
 
   system.stateVersion = "23.11";
 }

@@ -14,15 +14,15 @@
 
   outputs = { self, nixpkgs, nixpkgs2311, home-manager, ... } @inputs: {
       nixosConfigurations = {
-        pangolin = nixpkgs.lib.nixosSystem {
+        gharial = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
-            ./hosts/pangolin/configuration.nix
+            ./hosts/gharial/configuration.nix
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.admin = import ./users/admin/pangolin.nix;
+              home-manager.users.admin = import ./users/admin/gharial.nix;
             }
           ];
           specialArgs = { inherit inputs; };
