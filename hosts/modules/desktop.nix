@@ -23,15 +23,15 @@
       displayManager = {
         lightdm.enable = true;
       };
+    };
 
-      libinput = {
-        enable = true;
+    libinput = {
+      enable = true;
 
-        touchpad = {
-          tapping = false;
-          disableWhileTyping = true;
-          clickMethod = "clickfinger";
-        };
+      touchpad = {
+        tapping = false;
+        disableWhileTyping = true;
+        clickMethod = "clickfinger";
       };
     };
 

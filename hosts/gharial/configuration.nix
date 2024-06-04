@@ -13,6 +13,7 @@ in
     ../modules/qflipper.nix
     ../modules/clamav.nix
     ./nfs-mounts.nix
+    ./screen.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
