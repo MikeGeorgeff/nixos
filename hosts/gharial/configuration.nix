@@ -41,9 +41,6 @@ in
     extraGroups = [ "networkmanager" "wheel" "dialout" ];
   };
 
-  # Tools for framework laptops
-  environment.systemPackages = [ pkgs.framework-tool ];
-
   nix.settings.trusted-users = [ "admin" ];
   nix.settings.trusted-substituters = [ "ssh-ng://nix-ssh@saola.georgeff.co" ];
   nix.settings.trusted-public-keys = [
