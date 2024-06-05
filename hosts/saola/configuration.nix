@@ -79,6 +79,7 @@ in
     git-lfs
     git-crypt
     parted
+    doppler
     wget
   ];
 

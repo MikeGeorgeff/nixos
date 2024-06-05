@@ -6,18 +6,21 @@
 
     nixpkgs2311.url = "github:nixos/nixpkgs/nixos-23.11";
 
+    nixos-hardware.url = "github:nixos/nixos-hardware/master";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs2311, home-manager, ... } @inputs: {
+  outputs = { self, nixpkgs, nixpkgs2311, home-manager, nixos-hardware, ... } @inputs: {
       nixosConfigurations = {
         gharial = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
             ./hosts/gharial/configuration.nix
+            nixos-hardware.nixosModules.framework-16-7040-amd
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
