@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 {
-  services.xserver.dpi = 144;
+  services.xserver.dpi = 180;
 
   environment.variables = {
     GDK_SCALE = "0.8";
