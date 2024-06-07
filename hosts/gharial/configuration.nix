@@ -41,6 +41,8 @@ in
     extraGroups = [ "networkmanager" "wheel" "dialout" ];
   };
 
+  environment.systemPackages = with pkgs; [ fw-ectool ];
+
   nix.settings.trusted-users = [ "admin" ];
   nix.settings.trusted-substituters = [ "ssh-ng://nix-ssh@saola.georgeff.co" ];
   nix.settings.trusted-public-keys = [
