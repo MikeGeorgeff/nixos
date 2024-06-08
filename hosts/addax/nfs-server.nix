@@ -7,6 +7,14 @@ let
   default = "rw,nohide,insecure,no_subtree_check";
 in
 {
+  boot.supportedFilesystems = [ "zfs" ];
+  boot.zfs.forceImportRoot = true;
+
+  fileSystems."/mnt/vault" = {
+    device = "vault";
+    fsType = "zfs";
+  };
+
   services.nfs.server = {
     enable = true;
     lockdPort = 4001;
