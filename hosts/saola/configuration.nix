@@ -13,6 +13,7 @@ in
     ../modules/clamav.nix
     ./nfs-mounts.nix
     ./services/docker.nix
+    ./services/vagrant.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
